@@ -1,4 +1,4 @@
-﻿namespace SMTP_Envio
+namespace SMTP_Envio
 {
     partial class Form1
     {
@@ -75,6 +75,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -133,7 +134,7 @@
             // 
             // checkBox1
             // 
-            this.checkBox1.Location = new System.Drawing.Point(234, 397);
+            this.checkBox1.Location = new System.Drawing.Point(138, 398);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(104, 24);
             this.checkBox1.TabIndex = 9;
@@ -277,11 +278,23 @@
             this.textBox9.Size = new System.Drawing.Size(518, 20);
             this.textBox9.TabIndex = 25;
             // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(391, 402);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(71, 17);
+            this.checkBox3.TabIndex = 26;
+            this.checkBox3.Text = "SSL/TLS";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 437);
+            this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.button3);
@@ -316,5 +329,6 @@
 
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.CheckBox checkBox3;
     }
 }
