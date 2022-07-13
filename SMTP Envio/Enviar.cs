@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.IO;
 using System.Diagnostics;
@@ -10,13 +10,13 @@ namespace SMTP_Envio
 {
 	public class Enviar
 	{
-		public Enviar(string remetente, string smt, int port, string destino, string assunto, string mensagem, bool html){
+		public Enviar(string remetente, string smt, int port, string destino, string assunto, string mensagem, bool html, bool ssl){
 			MailMessage Email = new MailMessage();
 			Stopwatch Stop = new Stopwatch();
 			SmtpClient smtp = new SmtpClient();
 			smtp.Host = smt;
 			smtp.Port = port;
-			smtp.EnableSsl = false;
+			smtp.EnableSsl = ssl;
 			smtp.UseDefaultCredentials = true;
 			Email.From = new System.Net.Mail.MailAddress(remetente);
 			Email.To.Add(new System.Net.Mail.MailAddress(destino));
@@ -29,13 +29,14 @@ namespace SMTP_Envio
 			smtp.Send(Email);
 			MessageBox.Show("Mensagem enviada","Sucesso",MessageBoxButtons.OK, MessageBoxIcon.Information);			
 		}
-		public Enviar(string remetente, string smt, int port, string destino, string assunto, string mensagem, string anexo, bool html){
+		public Enviar(string remetente, string smt, int port, string destino, string assunto, string mensagem, string anexo, bool html, bool ssl)
+		{
 			MailMessage Email = new MailMessage();
 			Stopwatch Stop = new Stopwatch();
 			SmtpClient smtp = new SmtpClient();
 			smtp.Host = smt;
 			smtp.Port = port;
-			smtp.EnableSsl = false;
+			smtp.EnableSsl = ssl;
 			smtp.UseDefaultCredentials = true;
 			Email.From = new System.Net.Mail.MailAddress(remetente);
 			Email.To.Add(new System.Net.Mail.MailAddress(destino));
@@ -50,13 +51,14 @@ namespace SMTP_Envio
 			smtp.Send(Email);
 			MessageBox.Show("Mensagem enviada","Sucesso",MessageBoxButtons.OK, MessageBoxIcon.Information);			
 		}
-		public Enviar(string remetente, string smt, int port, string login, string senha, string destino, string assunto, string mensagem, bool html){
+		public Enviar(string remetente, string smt, int port, string login, string senha, string destino, string assunto, string mensagem, bool html, bool ssl)
+		{
 			MailMessage Email = new MailMessage();
 			Stopwatch Stop = new Stopwatch();
 			SmtpClient smtp = new SmtpClient();
 			smtp.Host = smt;
 			smtp.Port = port;
-			smtp.EnableSsl = false;
+			smtp.EnableSsl = ssl;
 			smtp.UseDefaultCredentials = false;
 			smtp.Credentials = new System.Net.NetworkCredential(login,senha);
 			Email.From = new System.Net.Mail.MailAddress(remetente);
@@ -70,14 +72,15 @@ namespace SMTP_Envio
 			smtp.Send(Email);
 			MessageBox.Show("Mensagem enviada","Sucesso",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);					
 		}
-		public Enviar(string remetente, string smt, int port, string login, string senha, string destino, string assunto, string mensagem, string anexo, bool html){
+		public Enviar(string remetente, string smt, int port, string login, string senha, string destino, string assunto, string mensagem, string anexo, bool html, bool ssl)
+		{
 			MailMessage Email = new MailMessage();
 			Stopwatch Stop = new Stopwatch();
 			SmtpClient smtp = new SmtpClient();
 			smtp.Host = smt;
 			smtp.Port = port;
-			smtp.EnableSsl = false;
-			smtp.UseDefaultCredentials = false;
+			smtp.EnableSsl = ssl;
+			smtp.UseDefaultCredentials = false;			
 			smtp.Credentials = new System.Net.NetworkCredential(login,senha);
 			Email.From = new System.Net.Mail.MailAddress(remetente);
 			Email.To.Add(new System.Net.Mail.MailAddress(destino));
