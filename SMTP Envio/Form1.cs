@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -10,6 +10,7 @@ namespace SMTP_Envio
     {
         bool req=false;
         bool html=false;
+        bool ssl=false;
         
         public Form1()
         {
@@ -42,10 +43,10 @@ namespace SMTP_Envio
                 string senha = textBox4.Text;
                 try{
                     if(String.IsNullOrEmpty(anexo)){
-                        new Enviar(remetente,smtp, port,login,senha,destino,assunto,mensagem,html);
+                        new Enviar(remetente,smtp, port,login,senha,destino,assunto,mensagem,html, ssl);
                     }
                     else{
-                        new Enviar(remetente,smtp,port,login,senha,destino,assunto,mensagem,anexo,html);
+                        new Enviar(remetente,smtp,port,login,senha,destino,assunto,mensagem,anexo,html, ssl);
                     }
                 }
                 catch (Exception a){
@@ -55,10 +56,10 @@ namespace SMTP_Envio
             if(req==false){
                 try{
                     if(String.IsNullOrEmpty(anexo)){
-                        new Enviar(remetente,smtp,port,destino,assunto,mensagem,html);
+                        new Enviar(remetente,smtp,port,destino,assunto,mensagem,html,ssl);
                     }
                     else{
-                        new Enviar(remetente,smtp,port,destino,assunto,mensagem,anexo,html);
+                        new Enviar(remetente,smtp,port,destino,assunto,mensagem,anexo,html, ssl);
                     }
                 }
                 catch (Exception a){
@@ -75,6 +76,7 @@ namespace SMTP_Envio
                 html=false;
             }
         }
+
         void Button2Click(object sender, EventArgs e)
         {
             this.Close();
@@ -87,6 +89,18 @@ namespace SMTP_Envio
             if(way.ShowDialog()==DialogResult.OK)
                 {
                 textBox8.Text = way.FileName;
+            }
+        }
+
+        void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+            {
+                ssl = true;
+            }
+            else
+            {
+                ssl = false;
             }
         }
     }
